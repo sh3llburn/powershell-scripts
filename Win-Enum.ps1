@@ -1,4 +1,44 @@
-# Enhanced-RedTeam-NetworkRecon.ps1
+<#
+.SYNOPSIS
+   Simple Enumeration Script 
+
+.DESCRIPTION
+    This PowerShell script collects comprehensive local system and network information
+    to aid in situational awareness during red team assessments or internal audits.
+
+    Features include:
+    - System and user context discovery
+    - Network configuration and interface details
+    - Active connections and listening services
+    - Domain and group membership enumeration
+    - Local users, shares, scheduled tasks, and running services
+    - Optional subnet ping sweep (can be skipped with -SkipSlow)
+    - Logs errors and outputs to timestamped files
+
+.PARAMETER Verbose
+    Enables real-time output to the console.
+
+.PARAMETER SkipSlow
+    Skips slower recon steps like ping sweeps and full discovery.
+
+.PARAMETER OutputDir
+    Specifies the directory to save output and error logs. Defaults to $env:TEMP.
+
+.OUTPUTS
+    A text file with reconnaissance results and an optional error log file.
+
+.EXAMPLE
+    .\Win-Enum.ps1 -Verbose
+    Performs full recon with console output.
+
+.NOTES
+    Author  : Jonathan Ennis
+    Version : 1.0
+    License : MIT
+    Date    : 2025-06-15
+
+#>
+
 param(
     [switch]$Verbose,
     [switch]$SkipSlow,
